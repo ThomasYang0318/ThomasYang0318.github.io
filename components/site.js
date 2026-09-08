@@ -65,15 +65,37 @@ export function initNavigation(root = document) {
   const nav = root.querySelector('.nav');
   if (!toggle || !nav) return;
 
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+  if (!nav.id) nav.id = 'primary-navigation';
+  toggle.setAttribute('aria-controls', nav.id);
+
+  const setOpen = open => {
+    nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(!nav.classList.contains('open'));
   });
 
   nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
+    setOpen(false);
   }));
+
+  root.addEventListener('click', event => {
+    if (!nav.classList.contains('open') || nav.contains(event.target) || toggle.contains(event.target)) return;
+    setOpen(false);
+  });
+
+  root.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !nav.classList.contains('open')) return;
+    setOpen(false);
+    toggle.focus();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 840) setOpen(false);
+  });
 }
 
 export function initRevealAnimations(root = document) {

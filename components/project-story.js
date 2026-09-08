@@ -66,4 +66,3 @@ export function renderProjectStories(projects, { root = document, pathPrefix = '
     container.innerHTML = projectStoryMarkup(project.caseStudy, pathPrefix);
   });
 }
-

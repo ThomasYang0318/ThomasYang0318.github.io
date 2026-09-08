@@ -157,14 +157,23 @@ export const projectTracks = [
       {
         id: 'local-ai-chatbot',
         title: 'Local AI Chatbot',
-        type: 'AI · Networking',
-        description: 'iPhone client, TCP server, and a locally hosted Ollama model.',
-        href: 'projects/project.html?id=local-ai-chatbot',
+        type: 'Local AI · Client–Server System',
+        description: 'A Flutter mobile client that exchanges messages with a locally hosted Ollama model through a Python TCP server.',
+        href: 'projects/project.html?id=local-ai-chatbot&v=20260827-12',
         linkLabel: 'Read project →',
-        tags: ['Python', 'TCP', 'Ollama', 'iOS'],
+        tags: ['Flutter', 'Dart', 'Python', 'TCP', 'Ollama'],
         details: [
-          'This project connects an iPhone chat client to a TCP server that forwards requests to a locally hosted Ollama language model.',
-          'It demonstrates a complete local-AI communication path, from the mobile interface and network protocol to model inference and response delivery.'
+          'Local AI Chatbot is a client–server prototype that lets an iPhone use a language model running on a nearby computer. The mobile interface is built with Flutter, while a Python TCP server acts as the bridge between the app and the local Ollama runtime.',
+          'When the user submits a message, the Flutter client sends the text through a TCP connection. The server receives the request, passes it to Ollama for inference, waits for the generated result, and sends the completed response back to the phone for display in the chat interface.',
+          'The current interaction follows a simple turn-based pattern: one user message produces one complete model response. This keeps the prototype easy to understand and makes each step of the communication path visible—from user input and network transfer to local inference and response delivery.',
+          'Running the model on the host computer reduces dependence on a cloud AI API and gives the system owner more control over where inference happens. A production-ready version could add structured message framing, connection timeouts, reconnection handling, token streaming, and persistent conversation history.'
+        ],
+        overviewFacts: [
+          { label: 'Mobile client', value: 'A Flutter chat interface running on an iPhone captures the prompt and displays the returned answer.' },
+          { label: 'Transport', value: 'A TCP connection carries each request and response between the phone and a computer on the local network.' },
+          { label: 'Server layer', value: 'A Python server coordinates the network connection and forwards prompts to the local model runtime.' },
+          { label: 'Local inference', value: 'Ollama runs the language model on the host computer instead of sending the prompt to a cloud AI service.' },
+          { label: 'Interaction model', value: 'One message is submitted at a time, and the interface waits for one complete response before the next turn.' }
         ],
         videos: [
           { title: 'Local AI chatbot demo', youtubeId: '4jLwm5LyvbU' }
@@ -289,20 +298,31 @@ export const projectTracks = [
         id: 'sign-language-recognition',
         title: 'Sign Language Recognition',
         type: 'Computer vision',
-        description: 'CNN-based image classification and evaluation.',
-        href: 'projects/project.html?id=sign-language-recognition',
+        description: 'A 36-class ASL fingerspelling classifier developed with CNN and spatial self-attention experiments in MATLAB.',
+        href: 'projects/sign-language.html',
         linkLabel: 'Read project →',
-        tags: ['CNN', 'Image Classification', 'Computer Vision'],
+        tags: ['MATLAB', 'CNN', 'Self-Attention', 'Image Classification'],
         details: [
-          'This project applies a convolutional neural network to recognize sign-language images as a supervised image-classification task.',
-          'The workflow covers dataset preparation, model training, prediction, and evaluation of how reliably visual gestures can be separated into classes.'
+          'This project classifies static ASL fingerspelling images across 36 classes: the letters A-Z and digits 0-9. A public dataset from Hugging Face is loaded locally through a MATLAB image datastore and normalized to a 400 by 400 RGB input.',
+          'The development process began with a basic CNN workflow, then explored data augmentation, training duration, learning rate, dropout, and a custom single-head spatial self-attention layer. The highest recorded validation accuracy in the current experiments is 94.00%.',
+          'The current demonstrator performs single-image inference: a user selects an image by its dataset index, the saved SA_net2 model classifies it, and MATLAB displays the predicted label. It is an image-classification prototype rather than continuous sign-language translation.'
+        ],
+        overviewFacts: [
+          { label: 'Classification target', value: '36 static gesture classes covering A-Z and 0-9.' },
+          { label: 'Input', value: 'RGB images resized to 400 by 400 pixels.' },
+          { label: 'Model work', value: 'CNN training with augmentation, dropout, and custom spatial self-attention experiments.' },
+          { label: 'Best recorded result', value: '94.00% validation accuracy; an independent test-set result has not yet been documented.' },
+          { label: 'Current interaction', value: 'Single-image prediction from a local ASL dataset, selected by image index.' }
         ],
         links: [
           { label: 'View presentation ↗', url: 'https://canva.link/toy3dx1uzj7d3de' }
         ],
+        videos: [
+          { title: 'Sign language recognition demonstration', youtubeId: '01JUBV2v3jM' }
+        ],
         image: {
-          src: 'assets/images/project-placeholder-dog-en.jpg',
-          alt: 'No image available for the Sign Language Recognition project yet'
+          src: 'assets/images/projects/visual/sign-language-system-overview.svg',
+          alt: 'ASL fingerspelling recognition pipeline from 36 gesture classes to CNN and self-attention classification'
         }
       },
       {
@@ -394,4 +414,3 @@ export const projectLookup = Object.fromEntries(
     }])
   ])
 );
-

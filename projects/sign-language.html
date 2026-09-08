@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ASL fingerspelling recognition with CNN and spatial self-attention in MATLAB - Yang Chi Hung portfolio project." />
+  <title>Sign Language Recognition - Yang Chi Hung</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <script src="../theme-init.js"></script>
+  <link rel="stylesheet" href="../styles.css?v=20260908-1" />
+</head>
+<body class="project-page">
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <a class="brand" href="../index.html">Yang Chi Hung</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index.html#expertise">Expertise</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">Profile</a>
+        <a href="../assets/documents/yang-chi-hung-cv.pdf" target="_blank" rel="noreferrer">CV &#8599;</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero wrap reveal">
+      <a class="back-link" href="../index.html#project-sign-language-recognition">&#8592; Back to project card</a>
+      <p class="eyebrow">Computer Vision &middot; Image Classification</p>
+      <h1>Sign Language Recognition</h1>
+      <div class="project-summary">
+        <div class="tags"><span>MATLAB</span><span>CNN</span><span>Self-Attention</span><span>ASL</span></div>
+        <p>A 36-class image-classification prototype for recognizing static ASL fingerspelling gestures across the letters A-Z and digits 0-9.</p>
+      </div>
+      <div class="project-hero-image">
+        <img src="../assets/images/projects/visual/sign-language-system-overview.svg" alt="ASL fingerspelling recognition pipeline from gesture images to a predicted class" />
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Motivation</h2>
+        <div class="case-content">
+          <p>People who are unfamiliar with fingerspelling can find even basic communication difficult. This project explores whether image recognition can provide an accessible starting point for learning and recognizing individual hand gestures.</p>
+          <p>The prototype focuses on immediate visual feedback for a single gesture. It is intended as a learning and classification experiment, not as a complete translator for continuous sign language.</p>
+          <div class="link-row">
+            <a class="button button-dark" href="https://youtu.be/01JUBV2v3jM" target="_blank" rel="noreferrer">Watch demonstration &#8599;</a>
+            <a class="button button-light" href="https://canva.link/toy3dx1uzj7d3de" target="_blank" rel="noreferrer">View presentation &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Dataset &amp; scope</h2>
+        <div class="case-content">
+          <p>The project uses a public ASL image dataset obtained through Hugging Face and stored locally as <code>asl_dataset</code>. MATLAB reads the folder structure with <code>imageDatastore</code>, using each folder name as the class label.</p>
+          <div class="project-facts">
+            <div><span>Classes</span><p>36 static gestures: letters A-Z and digits 0-9.</p></div>
+            <div><span>Input</span><p>Each image is resized to 400 &times; 400 pixels before classification.</p></div>
+            <div><span>Task</span><p>Supervised single-image classification.</p></div>
+            <div><span>Current evidence</span><p>Validation accuracy is documented; a separate held-out test result is not yet available.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Model pipeline</h2>
+        <div class="case-content">
+          <p>The workflow adapts a basic MATLAB CNN classification example to a larger RGB input and a 36-class output. Convolution, batch normalization, ReLU, and pooling extract visual features before the classifier predicts a letter or number.</p>
+          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Image classification model pipeline">
+            <span>Classification pipeline</span>
+            <strong>ASL image &rarr; resize &rarr; CNN features &rarr; spatial attention &rarr; class prediction</strong>
+          </div>
+          <div class="role-grid">
+            <div><h3>Preprocessing</h3><p>Load folder labels and resize RGB images to <code>400 &times; 400</code>.</p></div>
+            <div><h3>Feature extraction</h3><p>Use convolution, normalization, activation, and pooling to learn visual hand features.</p></div>
+            <div><h3>Classification</h3><p>Map the learned representation to one of 36 gesture classes.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal" id="experiments">
+      <div class="case-grid">
+        <h2>Training iterations</h2>
+        <div class="case-content">
+          <p>The initial network produced a validation accuracy of 2.86%. The experiments then adjusted augmentation, model regularization, epoch count, and learning rate. Increasing the training duration produced the largest improvement, while reducing the run to 10 epochs reached the highest recorded validation result.</p>
+          <ol class="stage-roadmap" aria-label="Model training iterations">
+            <li><a href="#experiments"><span>01</span><strong>2.86%</strong><small>Initial CNN, 4 epochs</small></a></li>
+            <li><a href="#experiments"><span>02</span><strong>Augment</strong><small>Rotation, reflection, and dropout</small></a></li>
+            <li><a href="#experiments"><span>03</span><strong>93.14%</strong><small>20 epochs, learning rate 0.001</small></a></li>
+            <li><a href="#experiments"><span>04</span><strong>94.00%</strong><small>10 epochs, highest recorded validation accuracy</small></a></li>
+          </ol>
+          <div class="project-facts">
+            <div><span>Optimizer</span><p>Stochastic gradient descent with momentum (<code>sgdm</code>).</p></div>
+            <div><span>Regularization</span><p>Dropout and data augmentation were explored to reduce overfitting.</p></div>
+            <div><span>Learning rate</span><p>Experiments compared 0.001 with a lower 0.0001 setting.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Spatial self-attention</h2>
+        <div class="case-content">
+          <p>The SA model variants include a custom single-head spatial self-attention layer. It projects the CNN feature map into Query, Key, and Value representations, compares spatial positions, and reweights the features before classification.</p>
+          <p>This is a lightweight custom attention experiment rather than a complete Transformer block. Attention must be applied after spatial downsampling because its memory requirement grows quadratically with the number of feature-map positions.</p>
+          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Spatial self-attention calculation">
+            <span>Custom attention layer</span>
+            <strong>Feature map &rarr; Query + Key + Value &rarr; weighted spatial features</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Current demonstrator</h2>
+        <div class="case-content">
+          <p>The current MATLAB script loads the saved <code>SA_net2.mat</code> model and the local ASL image datastore. The user enters an image index, the selected image is resized to 400 &times; 400, and the model displays its predicted class above the image.</p>
+          <div class="project-facts">
+            <div><span>Input method</span><p>Select one existing dataset image by its numeric index.</p></div>
+            <div><span>Inference</span><p>Run MATLAB <code>classify</code> with the saved network.</p></div>
+            <div><span>Output</span><p>Display the selected image and its predicted letter or digit.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Limitations &amp; next steps</h2>
+        <div class="case-content">
+          <p>The current system recognizes one static image at a time. It does not yet process a live camera feed, combine predictions into words, or translate continuous sign-language sentences and grammar. Dynamic gestures, including letters represented through motion, also require temporal information rather than a single frame.</p>
+          <div class="role-grid">
+            <div><h3>Evaluation</h3><p>Create an independent test split, confusion matrix, and per-class precision and recall.</p></div>
+            <div><h3>Live input</h3><p>Add webcam inference, confidence thresholds, and prediction smoothing.</p></div>
+            <div><h3>Temporal gestures</h3><p>Model motion across frames for dynamic signs and continuous input.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Project video</h2>
+        <div class="case-content" data-project-videos="sign-language-recognition"><p>Watch the classification demonstration through the link above.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><span>&copy; <span id="year"></span> Yang Chi Hung</span><a href="../index.html">Home &#8599;</a></footer>
+  <script type="module" src="../script.js?v=20260908-1"></script>
+</body>
+</html>
