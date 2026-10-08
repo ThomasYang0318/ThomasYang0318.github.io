@@ -60,6 +60,28 @@ Edit [`data/skills.js`](data/skills.js) to control the Technical Toolkit tags.
 
 Project IDs are defined in `data/projects.js`.
 
+## Traditional Chinese and English
+
+The header language button switches the entire page without navigating or
+resetting interactive controls. The first visit follows the browser's primary
+language (Chinese uses Traditional Chinese); later visits use the saved
+`portfolio-language` preference. Switching still works when storage is blocked.
+
+English content remains in the HTML and project data. Add or update the matching
+English-keyed translation in [`data/zh-tw.js`](data/zh-tw.js) whenever copy changes.
+Whitespace is normalized for lookup. [`components/i18n.js`](components/i18n.js)
+translates text, page titles, descriptions, image alternatives, and accessible
+labels, including content inserted by dialogs and interactive controls. Code,
+URLs, image pixels, and embedded media are preserved. Use `data-no-translate`
+for deliberately language-independent content. JavaScript-disabled pages retain
+the original English fallback.
+
+The browser regression checks in [`tests/i18n.browser.js`](tests/i18n.browser.js)
+export `runI18nChecks(browser, baseURL)`. Pass an isolated Playwright Browser and
+the local preview URL. The checks cover all page routes, English restoration,
+Chinese text coverage, unchanged links/media, mobile layout, preference storage,
+blocked storage, dialogs, navigation, themes, and carousel state.
+
 ## Project article pages
 
 Each project card contains a topic, title, and one-sentence summary. Featured
