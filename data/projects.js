@@ -188,16 +188,28 @@ export const projectTracks = [
         id: 'stock-assistant',
         title: 'Stock Assistant',
         type: 'AI application',
-        description: 'LINE Bot integrating market-data services and AI APIs.',
+        description: 'A conversational stock assistant for asking about price trends, comparing stocks, and requesting charts directly in LINE.',
         href: 'projects/project.html?id=stock-assistant',
         linkLabel: 'Read project →',
         tags: ['LINE Bot', 'API Integration', 'Market Data', 'AI'],
         details: [
-          'Stock Assistant brings market information and AI-assisted responses into a familiar LINE conversation interface.',
-          'The project focuses on coordinating multiple external services, formatting financial data clearly, and keeping the interaction concise for mobile users.'
+          'Looking up stock prices and analysis often means switching between different platforms. Stock Assistant brings these queries into a familiar LINE conversation, aiming to reduce the effort needed to find and understand stock information.',
+          'The project combines a LINE Bot, a stock-data API, and an AI API in a conversational stock-analysis assistant. Users can ask stock-related questions in natural language instead of navigating separate tools.',
+          'Queries include asking about a particular stock\'s recent price trend, comparing the performance of different stocks, and requesting a price-trend chart. The goal is to make stock-information lookup easier to access through chat.'
+        ],
+        overviewFacts: [
+          { label: 'User problem', value: 'Stock-price and analysis queries require switching between multiple platforms.' },
+          { label: 'Interaction', value: 'Natural-language questions sent directly through LINE.' },
+          { label: 'Core queries', value: 'Recent price trends, stock-performance comparisons, and price-trend charts.' },
+          { label: 'Service integration', value: 'LINE Bot, a stock-data API, and an AI API.' },
+          { label: 'Planned independent rebuild', value: 'I plan to rebuild the project independently, with support for Taiwan and US stocks. This is a future development plan; the rebuild has not yet been implemented.' }
         ],
         links: [
-          { label: 'View presentation ↗', url: 'https://canva.link/cksdxkj3eizbnmc' }
+          { label: 'View presentation ↗', url: 'https://canva.link/cksdxkj3eizbnmc' },
+          { label: 'Watch demo on YouTube ↗', url: 'https://www.youtube.com/shorts/2ZCj3vfZZ0k' }
+        ],
+        videos: [
+          { title: 'Stock Assistant — LINE Bot demo', youtubeId: '2ZCj3vfZZ0k', portrait: true }
         ],
         image: {
           src: 'assets/images/project-placeholder-dog-en.jpg',
