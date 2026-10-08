@@ -212,9 +212,16 @@ export const projectTracks = [
           { title: 'Stock Assistant — LINE Bot demo', youtubeId: '2ZCj3vfZZ0k', portrait: true }
         ],
         image: {
-          src: 'assets/images/project-placeholder-dog-en.jpg',
-          alt: 'No image available for the Stock Assistant project yet'
-        }
+          src: 'assets/images/projects/software/stock-assistant/line-comparison-demo.png',
+          alt: 'Stock Assistant presentation showing a LINE conversation comparing companies',
+          className: 'media-contain'
+        },
+        images: [
+          { src: 'assets/images/projects/software/stock-assistant/line-comparison-demo.png', alt: 'LINE chat demonstration of comparing multiple companies in Stock Assistant' },
+          { src: 'assets/images/projects/software/stock-assistant/trend-query-demo.png', alt: 'LINE conversation requesting a 30-day stock trend chart' },
+          { src: 'assets/images/projects/software/stock-assistant/query-workflow.png', alt: 'Stock Assistant workflow routing user input to chart generation, stock analysis, or a conversational reply' },
+          { src: 'assets/images/projects/software/stock-assistant/chart-output.png', alt: 'Stock Assistant presentation showing a stock-price chart hosted in Cloudinary' }
+        ]
       }
     ]
   },
@@ -273,9 +280,16 @@ export const projectTracks = [
           { label: 'View presentation ↗', url: 'https://www.canva.com/design/DAHJarXtIbw/EyQHEQyKoJ0cc53qU5ZDcA/view' }
         ],
         image: {
-          src: 'assets/images/project-placeholder-dog-en.jpg',
-          alt: 'No image available for the Two Dices project yet'
-        }
+          src: 'assets/images/projects/embedded/two-dices/final-comparison-circuit.png',
+          alt: 'Two Dices breadboard circuit with two seven-segment displays and comparison indicator lights',
+          className: 'media-contain'
+        },
+        images: [
+          { src: 'assets/images/projects/embedded/two-dices/final-comparison-circuit.png', alt: 'Final Two Dices breadboard and indicator lights for greater than, equal to, and less than' },
+          { src: 'assets/images/projects/embedded/two-dices/johnson-breadboard.png', alt: 'Johnson-counter dice prototype wired on a breadboard with a seven-segment display' },
+          { src: 'assets/images/projects/embedded/two-dices/johnson-circuit-overview.png', alt: 'Annotated Johnson-counter dice circuit showing encoding, valid-value logic, flip-flops, and display stages' },
+          { src: 'assets/images/projects/embedded/two-dices/555-circuit-simulation.png', alt: 'CircuitJS1 simulation of the alternative dice circuit using three 555 timers' }
+        ]
       }
     ]
   },
