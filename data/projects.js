@@ -353,15 +353,23 @@ export const projectTracks = [
           { label: 'Current interaction', value: 'Single-image prediction from a local ASL dataset, selected by image index.' }
         ],
         links: [
-          { label: 'View presentation ↗', url: 'https://canva.link/toy3dx1uzj7d3de' }
+          { label: 'View presentation ↗', url: 'https://www.canva.com/design/DAHJatEpzWk/nstlMZrI2ZfZJ_c39smrTg/view' }
         ],
         videos: [
           { title: 'Sign language recognition demonstration', youtubeId: '01JUBV2v3jM' }
         ],
         image: {
-          src: 'assets/images/projects/visual/sign-language-system-overview.svg',
-          alt: 'ASL fingerspelling recognition pipeline from 36 gesture classes to CNN and self-attention classification'
-        }
+          src: 'assets/images/projects/visual/sign-language/validation-94.png',
+          alt: 'Training curves and a recorded validation accuracy of 94.00 percent after 10 epochs',
+          className: 'media-contain'
+        },
+        images: [
+          { src: 'assets/images/projects/visual/sign-language/validation-94.png', alt: 'Presentation documenting 94.00 percent validation accuracy after 10 epochs and 180 iterations' },
+          { src: 'assets/images/projects/visual/sign-language/initial-training.png', alt: 'Initial four-epoch training experiment with 2.86 percent validation accuracy' },
+          { src: 'assets/images/projects/visual/sign-language/data-augmentation.png', alt: 'MATLAB image augmentation settings for rotation and reflection' },
+          { src: 'assets/images/projects/visual/sign-language/training-20-epochs.png', alt: 'Intermediate training curves with 93.14 percent validation accuracy and an overfitting concern noted in the presentation' },
+          { src: 'assets/images/projects/visual/sign-language/gesture-reference.png', alt: 'Gesture reference chart beside the MATLAB project code in the original presentation' }
+        ]
       },
       {
         id: 'mini-photoshop',

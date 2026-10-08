@@ -30,3 +30,13 @@ These PNGs are unchanged page previews downloaded from the user's original Canva
 - `sobel-comparison.jpg`: page 15; also used as the homepage cover.
 
 The algorithm and performance descriptions come from pages 1–15. Gaussian speedups are reported experimental results, not universal performance guarantees.
+
+## Sign Language Recognition source
+
+`visual/sign-language/` contains unchanged 596 × 335 page previews from the user's [Sign Language Recognition presentation](https://www.canva.com/design/DAHJatEpzWk/nstlMZrI2ZfZJ_c39smrTg/view), downloaded on 2026-10-08.
+
+- `validation-94.png`: page 15; 94.00% validation accuracy after 10 epochs and 180 iterations.
+- `initial-training.png`: page 7; 2.86% validation accuracy after 4 epochs.
+- `data-augmentation.png`: page 9; rotation and reflection settings.
+- `training-20-epochs.png`: page 11; 93.14% validation accuracy, with an overfitting concern noted by the presenter.
+- `gesture-reference.png`: page 17; gesture reference chart and MATLAB code.

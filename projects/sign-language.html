@@ -33,8 +33,8 @@
         <div class="tags"><span>MATLAB</span><span>CNN</span><span>Self-Attention</span><span>ASL</span></div>
         <p>A 36-class image-classification prototype for recognizing static ASL fingerspelling gestures across the letters A-Z and digits 0-9.</p>
       </div>
-      <div class="project-hero-image">
-        <img src="../assets/images/projects/visual/sign-language-system-overview.svg" alt="ASL fingerspelling recognition pipeline from gesture images to a predicted class" />
+      <div class="project-hero-image project-carousel project-detail-carousel" data-project-gallery="sign-language-recognition" aria-label="Sign language recognition training results and project images">
+        <img src="../assets/images/projects/visual/sign-language/validation-94.png" alt="Training curves and a recorded validation accuracy of 94.00 percent after 10 epochs" />
       </div>
     </section>
 
@@ -46,7 +46,7 @@
           <p>The prototype focuses on immediate visual feedback for a single gesture. It is intended as a learning and classification experiment, not as a complete translator for continuous sign language.</p>
           <div class="link-row">
             <a class="button button-dark" href="https://youtu.be/01JUBV2v3jM" target="_blank" rel="noreferrer">Watch demonstration &#8599;</a>
-            <a class="button button-light" href="https://canva.link/toy3dx1uzj7d3de" target="_blank" rel="noreferrer">View presentation &#8599;</a>
+            <a class="button button-light" href="https://www.canva.com/design/DAHJatEpzWk/nstlMZrI2ZfZJ_c39smrTg/view" target="_blank" rel="noreferrer">View presentation &#8599;</a>
           </div>
         </div>
       </div>
@@ -89,7 +89,8 @@
       <div class="case-grid">
         <h2>Training iterations</h2>
         <div class="case-content">
-          <p>The initial network produced a validation accuracy of 2.86%. The experiments then adjusted augmentation, model regularization, epoch count, and learning rate. Increasing the training duration produced the largest improvement, while reducing the run to 10 epochs reached the highest recorded validation result.</p>
+          <p>The initial four-epoch run recorded 2.86% validation accuracy, and the first augmentation experiment remained at 2.86%. A later 20-epoch run reached 93.14%, with an overfitting concern noted in the presentation. Reducing training to 10 epochs produced the highest documented validation result of 94.00% across 180 iterations. A further experiment compared learning rates of 0.001 and 0.0001.</p>
+          <p>The gallery contains the original presentation slides and training curves. These percentages are validation results; they do not establish accuracy on an independent test set or in live use.</p>
           <ol class="stage-roadmap" aria-label="Model training iterations">
             <li><a href="#experiments"><span>01</span><strong>2.86%</strong><small>Initial CNN, 4 epochs</small></a></li>
             <li><a href="#experiments"><span>02</span><strong>Augment</strong><small>Rotation, reflection, and dropout</small></a></li>
@@ -156,6 +157,6 @@
   </main>
 
   <footer class="footer wrap"><span>&copy; <span id="year"></span> Yang Chi Hung</span><a href="../index.html">Home &#8599;</a></footer>
-  <script type="module" src="../script.js?v=20260908-1"></script>
+  <script type="module" src="../script.js?v=20261008-6"></script>
 </body>
 </html>
