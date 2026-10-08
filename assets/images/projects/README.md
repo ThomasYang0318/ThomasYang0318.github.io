@@ -41,4 +41,6 @@ The algorithm and performance descriptions come from pages 1–15. Gaussian spee
 - `training-20-epochs.png`: page 11; 93.14% validation accuracy, with an overfitting concern noted by the presenter.
 - `gesture-reference.png`: page 17; gesture reference chart and MATLAB code.
 
-`prediction-result.png` is the unchanged user-provided `履歷 的複本.png`, added on 2026-10-08 as the homepage cover and first gallery image. It shows a hand gesture with the model output label 0; the training slides remain available after it.
+`prediction-result.png` is the unchanged user-provided `履歷 的複本.png`, added on 2026-10-08 as the homepage cover and sole gallery image. It shows a hand gesture with the model output label 0. The training previews listed above are retained as source assets but are no longer displayed on the site.
+
+Image display is capped at natural size in project galleries, with scale-down fitting for contained homepage images. The 596 x 335 Canva previews and 150 x 151 prediction image need higher-resolution originals for larger, sharper presentation; CSS does not restore missing detail.

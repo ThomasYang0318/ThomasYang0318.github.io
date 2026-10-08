@@ -364,12 +364,7 @@ export const projectTracks = [
           className: 'media-contain'
         },
         images: [
-          { src: 'assets/images/projects/visual/sign-language/prediction-result.png', alt: 'Hand-gesture image with the model prediction label 0' },
-          { src: 'assets/images/projects/visual/sign-language/validation-94.png', alt: 'Presentation documenting 94.00 percent validation accuracy after 10 epochs and 180 iterations' },
-          { src: 'assets/images/projects/visual/sign-language/initial-training.png', alt: 'Initial four-epoch training experiment with 2.86 percent validation accuracy' },
-          { src: 'assets/images/projects/visual/sign-language/data-augmentation.png', alt: 'MATLAB image augmentation settings for rotation and reflection' },
-          { src: 'assets/images/projects/visual/sign-language/training-20-epochs.png', alt: 'Intermediate training curves with 93.14 percent validation accuracy and an overfitting concern noted in the presentation' },
-          { src: 'assets/images/projects/visual/sign-language/gesture-reference.png', alt: 'Gesture reference chart beside the MATLAB project code in the original presentation' }
+          { src: 'assets/images/projects/visual/sign-language/prediction-result.png', alt: 'Hand-gesture image with the model prediction label 0' }
         ]
       },
       {
