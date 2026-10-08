@@ -1,11 +1,6 @@
 // Traditional Chinese copy. English source text is the lookup key.
 // Keep product names, code identifiers, URLs, and media files unchanged.
 export const zhTW = {
-  "All projects": "全部專案",
-  "Filter projects by discipline": "依領域篩選專案",
-  "projects shown": "項專案",
-  "On this page": "本頁章節",
-  "Choose a discipline or browse the featured projects first.": "依領域篩選，或從精選專案開始瀏覽。",
   "Person: Open the personal layer walkthrough": "個人：開啟個人層次功能介紹",
   "Friend: Open the friend layer walkthrough": "朋友：開啟朋友層次功能介紹",
   "Community: Open the community layer walkthrough": "社群：開啟社群層次功能介紹",

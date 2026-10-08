@@ -140,7 +140,6 @@ export const projectTracks = [
     otherProjects: [
       {
         id: 'nebula',
-        galleryLayout: 'compact',
         title: 'Nebula Market',
         type: 'Blockchain product',
         description: 'A marketplace for issuing, verifying, tracking, and transferring NFT-backed software licenses.',
