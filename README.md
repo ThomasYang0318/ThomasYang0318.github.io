@@ -7,9 +7,11 @@ A lightweight, modular static portfolio that deploys directly to GitHub Pages.
 Most portfolio updates only require editing [`data/projects.js`](data/projects.js).
 
 - `projectTracks` controls the three disciplines and their order.
-- `featured` controls the large project shown for each discipline.
-- `otherProjects` controls the smaller project cards.
+- `featured` selects the project from each discipline shown first in the shared card grid.
+- `otherProjects` adds the remaining cards. The homepage can filter all cards by discipline.
 - `images` is the carousel image list. Add another `{ src, alt }` object to add a slide.
+- The homepage uses one cover per card; full galleries appear on detail pages.
+- `galleryLayout: 'compact'` places a small gallery alongside the project summary on desktop.
 - `videos` accepts privacy-enhanced YouTube embeds or local MP4 files, including portrait video and muted autoplay options.
 - `featureTour` creates an interactive annotated-image walkthrough on a project page.
 - `caseStudy` creates a chapter-based product narrative with captioned project images.
@@ -96,6 +98,7 @@ detail page, so card clicks stay within the portfolio first.
 - `data/projects.js` — single source of truth for project cards, galleries, and videos
 - `data/skills.js` — skill tags and their one-to-one or one-to-many project links
 - `components/projects.js` — project-card and gallery rendering
+- `components/reading-nav.js` — chapter links generated from project-page headings
 - `components/project-detail.js` — shared article-style detail-page rendering
 - `components/feature-tour.js` — reusable hotspot-driven project walkthroughs
 - `components/project-story.js` — chapter navigation and systematic project storytelling
@@ -118,6 +121,11 @@ python -m http.server 8000
 ```
 
 Then open `http://localhost:8000`.
+
+`tests/browsing.browser.js` exports `runBrowsingChecks(browser, baseURL)` for an
+isolated Playwright Browser. It checks category filtering, keyboard access,
+language/filter state, skill-link targets, chapter links, gallery navigation,
+mobile reflow, and the static project-card fallback.
 
 ## GitHub Pages
 

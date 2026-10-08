@@ -125,6 +125,6 @@ export function updateCopyrightYear(root = document) {
 export function restoreHashTarget(root = document) {
   if (!window.location.hash.startsWith('#project-')) return;
   window.requestAnimationFrame(() => {
-    root.querySelector(window.location.hash)?.scrollIntoView();
+    root.getElementById(window.location.hash.slice(1))?.scrollIntoView();
   });
 }

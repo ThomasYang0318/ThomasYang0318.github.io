@@ -7,9 +7,11 @@ export function carouselMarkup(images, { href = '', pathPrefix = '' } = {}) {
 
   return `
     <div class="carousel-track">${slides}</div>
-    <button class="carousel-button carousel-prev" type="button" aria-label="Previous image">‹</button>
-    <button class="carousel-button carousel-next" type="button" aria-label="Next image">›</button>
-    <div class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>${images.length}</span></div>
+    <div class="carousel-controls">
+      <button class="carousel-button carousel-prev" type="button" aria-label="Previous image">‹</button>
+      <div class="carousel-status" aria-live="polite"><span data-carousel-current>1</span> / <span data-carousel-total>${images.length}</span></div>
+      <button class="carousel-button carousel-next" type="button" aria-label="Next image">›</button>
+    </div>
   `;
 }
 

@@ -1,14 +1,15 @@
-import { projectLookup, projectTracks } from './data/projects.js?v=20261008-9';
+import { projectLookup, projectTracks } from './data/projects.js?v=20261008-11';
 import { skillGroups } from './data/skills.js?v=20261008-4';
-import { initCarousels } from './components/carousel.js?v=20260827-12';
+import { initCarousels } from './components/carousel.js?v=20261008-11';
 import { renderFeatureTours } from './components/feature-tour.js?v=20260827-12';
 import { renderGenericProjectDetail } from './components/project-detail.js?v=20260827-12';
 import { renderProjectStories } from './components/project-story.js?v=20260827-12';
-import { renderProjectGalleries, renderProjectTracks } from './components/projects.js?v=20260827-12';
-import { initNavigation, initRevealAnimations, initThemeToggle, restoreHashTarget, updateCopyrightYear } from './components/site.js?v=20260908-1';
+import { renderProjectGalleries, renderProjectTracks } from './components/projects.js?v=20261008-11';
+import { initNavigation, initRevealAnimations, initThemeToggle, restoreHashTarget, updateCopyrightYear } from './components/site.js?v=20261008-11';
 import { initSkillProjectChooser, renderSkillGroups } from './components/skills.js?v=20260827-12';
 import { renderProjectVideos, renderVideoEmbeds } from './components/videos.js?v=20260827-12';
-import { initLanguageSwitcher } from './components/i18n.js?v=20261008-10';
+import { initLanguageSwitcher } from './components/i18n.js?v=20261008-11';
+import { initReadingNavigation } from './components/reading-nav.js?v=20261008-11';
 
 const pathPrefix = document.body.classList.contains('project-page') ? '../' : '';
 
@@ -26,5 +27,6 @@ initNavigation();
 initCarousels();
 initRevealAnimations();
 updateCopyrightYear();
+initReadingNavigation();
 initLanguageSwitcher();
 restoreHashTarget();
