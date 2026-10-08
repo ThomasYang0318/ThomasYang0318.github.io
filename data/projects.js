@@ -359,11 +359,12 @@ export const projectTracks = [
           { title: 'Sign language recognition demonstration', youtubeId: '01JUBV2v3jM' }
         ],
         image: {
-          src: 'assets/images/projects/visual/sign-language/validation-94.png',
-          alt: 'Training curves and a recorded validation accuracy of 94.00 percent after 10 epochs',
+          src: 'assets/images/projects/visual/sign-language/prediction-result.png',
+          alt: 'Hand-gesture image with the model prediction label 0',
           className: 'media-contain'
         },
         images: [
+          { src: 'assets/images/projects/visual/sign-language/prediction-result.png', alt: 'Hand-gesture image with the model prediction label 0' },
           { src: 'assets/images/projects/visual/sign-language/validation-94.png', alt: 'Presentation documenting 94.00 percent validation accuracy after 10 epochs and 180 iterations' },
           { src: 'assets/images/projects/visual/sign-language/initial-training.png', alt: 'Initial four-epoch training experiment with 2.86 percent validation accuracy' },
           { src: 'assets/images/projects/visual/sign-language/data-augmentation.png', alt: 'MATLAB image augmentation settings for rotation and reflection' },

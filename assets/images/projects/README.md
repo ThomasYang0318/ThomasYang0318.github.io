@@ -40,3 +40,5 @@ The algorithm and performance descriptions come from pages 1–15. Gaussian spee
 - `data-augmentation.png`: page 9; rotation and reflection settings.
 - `training-20-epochs.png`: page 11; 93.14% validation accuracy, with an overfitting concern noted by the presenter.
 - `gesture-reference.png`: page 17; gesture reference chart and MATLAB code.
+
+`prediction-result.png` is the unchanged user-provided `履歷 的複本.png`, added on 2026-10-08 as the homepage cover and first gallery image. It shows a hand gesture with the model output label 0; the training slides remain available after it.
