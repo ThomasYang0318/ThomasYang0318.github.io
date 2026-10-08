@@ -367,14 +367,15 @@ export const projectTracks = [
         id: 'mini-photoshop',
         title: 'Mini Photoshop',
         type: 'Image processing',
-        description: 'An independently developed C++ image editor for resizing, color adjustments, Gaussian blur, and Sobel edge detection.',
+        description: 'An independently developed C++ image editor for resizing, color adjustments, Gaussian and bilateral filtering, and Sobel edge detection.',
         href: 'projects/project.html?id=mini-photoshop',
         linkLabel: 'Read project →',
         tags: ['C++', 'Image Processing', 'Gaussian Blur', 'Sobel Filter'],
         details: [
           'Mini Photoshop is a C++ image-processing tool that I developed independently, using familiar Photoshop editing functions as a reference. The project brings basic image transformations into an interactive interface where users can load an image, apply an operation, and inspect the result.',
           'The resizing tools support proportional enlargement, proportional reduction, and non-proportional enlargement. Color adjustments include grayscale conversion, negative images, and increasing or decreasing contrast.',
-          'The image-processing functions include Gaussian blur and Sobel edge detection. The project examples place original and processed images side by side to show smoothing effects and the outlines extracted from an image.',
+          'The image-processing functions include Gaussian blur, bilateral filtering, and Sobel edge detection. The project examples place original and processed images side by side to compare smoothing, edge-preserving filtering, and extracted outlines.',
+          'The implementation report documents bilinear interpolation for resizing, weighted grayscale conversion, and contrast adjustment with pixel values clamped to the valid range. Filtering work includes normalized Gaussian kernels with reflected borders, bilateral weights based on spatial and color differences, and Sobel gradients computed across the color channels.',
           'By connecting image-processing algorithms with a graphical interface, the project explores how pixel-level operations become practical editing tools with directly visible results.'
         ],
         overviewFacts: [
@@ -382,12 +383,24 @@ export const projectTracks = [
           { label: 'User workflow', value: 'Load an image, select an editing operation, and view the processed result in the interface.' },
           { label: 'Resizing', value: 'Proportional enlargement and reduction, plus non-proportional enlargement.' },
           { label: 'Color adjustments', value: 'Grayscale, negative images, and higher or lower contrast.' },
-          { label: 'Image filters', value: 'Gaussian blur for smoothing and Sobel filtering for edge detection.' }
+          { label: 'Image filters', value: 'Gaussian blur for smoothing, bilateral filtering for smoothing while preserving edges, and Sobel filtering for edge detection.' },
+          { label: 'Implementation structure', value: 'ImageScaler.cpp handles bilinear resizing, ImageColorAdjuster.cpp handles pixel adjustments, and ImageFilter.cpp contains the filtering operations.' },
+          { label: 'Performance work', value: 'Gaussian filtering was optimized through parallel loops and separable convolution; bilateral filtering used a lookup table for color-difference weights. The report records approximately 1.58× and 5.35× Gaussian speedups in its experiments; these are environment-specific measurements.' }
         ],
         image: {
-          src: 'assets/images/project-placeholder-dog-en.jpg',
-          alt: 'No image available for the Mini Photoshop project yet'
-        }
+          src: 'assets/images/projects/visual/mini-photoshop/sobel-comparison.jpg',
+          alt: 'Mini Photoshop interface comparing an original image with its Sobel edge-detection result',
+          className: 'media-contain'
+        },
+        images: [
+          { src: 'assets/images/projects/visual/mini-photoshop/sobel-comparison.jpg', alt: 'Original image and Sobel edge-detection result in the Mini Photoshop interface' },
+          { src: 'assets/images/projects/visual/mini-photoshop/resize-comparison.jpg', alt: 'Original image with proportional enlargement, proportional reduction, and non-proportional enlargement' },
+          { src: 'assets/images/projects/visual/mini-photoshop/contrast-comparison.jpg', alt: 'Original image compared with increased and decreased contrast' },
+          { src: 'assets/images/projects/visual/mini-photoshop/grayscale-comparison.jpg', alt: 'Color image and its weighted grayscale conversion' },
+          { src: 'assets/images/projects/visual/mini-photoshop/negative-comparison.jpg', alt: 'Original image and its inverted-color negative' },
+          { src: 'assets/images/projects/visual/mini-photoshop/gaussian-comparison.jpg', alt: 'Original image and its Gaussian blur result' },
+          { src: 'assets/images/projects/visual/mini-photoshop/bilateral-comparison.jpg', alt: 'Original image and its bilateral-filtered result preserving edges while smoothing' }
+        ]
       },
       {
         id: 'blender-vfx-movie',

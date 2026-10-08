@@ -16,3 +16,17 @@ These PNGs are unchanged page previews downloaded from the user's original Canva
 
 - `software/stock-assistant/`: [Stock Assistant presentation](https://www.canva.com/design/DAHJal35urI/cHA8_1RakRQDC7WVqzHfXw/view). `line-comparison-demo.png` is page 6, `trend-query-demo.png` is page 7, `query-workflow.png` is page 8, and `chart-output.png` is page 11.
 - `embedded/two-dices/`: [Two Dices presentation](https://www.canva.com/design/DAHJarXtIbw/EyQHEQyKoJ0cc53qU5ZDcA/view). `final-comparison-circuit.png` is page 33, `johnson-breadboard.png` is page 22, `johnson-circuit-overview.png` is page 7, and `555-circuit-simulation.png` is page 24.
+
+## Mini Photoshop source
+
+`visual/mini-photoshop/` contains comparison figures rendered directly from the user-provided `Multimedia Tools and Applications HW1_411285003.pdf` on 2026-10-08. The PDF calls the project "Tiny Photoshop"; the website retains its existing "Mini Photoshop" title. Captures preserve the original application screenshots and figure labels, excluding surrounding report text.
+
+- `resize-comparison.jpg`: page 2.
+- `contrast-comparison.jpg`: page 3.
+- `grayscale-comparison.jpg`: page 4.
+- `negative-comparison.jpg`: page 5.
+- `gaussian-comparison.jpg`: page 9.
+- `bilateral-comparison.jpg`: page 13.
+- `sobel-comparison.jpg`: page 15; also used as the homepage cover.
+
+The algorithm and performance descriptions come from pages 1–15. Gaussian speedups are reported experimental results, not universal performance guarantees.
