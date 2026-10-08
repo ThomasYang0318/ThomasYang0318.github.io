@@ -252,15 +252,15 @@ export const projectTracks = [
       title: 'Smart Wearable Resistance Training System',
       href: 'projects/wearable.html',
       meta: 'Embedded AI · Wearable · Sensing',
-      description: 'A wearable system combining IMU and optical sensing, edge intelligence, movement analysis, and real-time mobile feedback.',
-      tags: ['IMU', 'CNN', 'Luckfox Pico Zero', 'Flutter'],
+      description: 'A wrist-worn IMU and multiwavelength PPG system for eight-exercise recognition, movement-tempo analysis, and perceived exertion estimation with edge AI.',
+      tags: ['IMU', 'Multiwavelength PPG', 'Causal CNN', 'Luckfox Pico Zero', 'Flutter'],
       linkLabel: 'Read project',
       videos: [
         { title: 'Smart wearable resistance training system demo', youtubeId: 'DJ7WR7n6QPM' }
       ],
       images: [
         {
-          src: 'assets/images/projects/embedded/wearable-system-architecture.png',
+          src: 'assets/images/projects/embedded/wearable/system-architecture.png',
           alt: 'Wearable sensing architecture connecting optical sensors and an IMU to a Luckfox Pico Zero and smartphone'
         }
       ]

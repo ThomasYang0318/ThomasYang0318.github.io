@@ -435,6 +435,13 @@ a.portfolio-card:hover { transform:translateY(-3px); border-color:var(--line-str
 .case-image img { max-height:620px; object-fit:scale-down; padding:26px; }
 .case-image-dark { background:#414141; }
 .case-image-dark img { padding:0; }
+.manuscript-figure { margin-inline:0; }
+.manuscript-figure img { width:100%; height:auto; background:#fff; }
+.manuscript-figure figcaption { padding:14px 20px; color:var(--muted); font-size:13px; line-height:1.6; }
+.manuscript-app-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:18px; align-items:start; }
+.manuscript-app-grid .manuscript-figure { width:100%; max-width:297px; justify-self:center; }
+.manuscript-app-grid img { padding:0; }
+.manuscript-results { margin-bottom:24px; }
 .visual-placeholder {
   min-height:460px;
   display:flex;

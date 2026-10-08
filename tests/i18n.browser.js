@@ -1,7 +1,6 @@
 // Serve the repository locally, then call runI18nChecks(browser, baseURL)
 // with an isolated Playwright Browser. No account or external media is required.
 import assert from 'node:assert/strict';
-import { preferredLanguage, translate } from '../components/i18n.js';
 import { zhTW } from '../data/zh-tw.js';
 
 export async function runI18nChecks(browser, baseURL) {
@@ -97,11 +96,17 @@ export async function runI18nChecks(browser, baseURL) {
   await blockedPage.locator('[data-language-toggle]').click();
   assert.equal(await blockedPage.locator('html').getAttribute('lang'), 'en');
   await blocked.close();
+  // Exercise the browser module, including its versioned dictionary dependency.
+  const helpers = await page.evaluate(async () => {
+    const { preferredLanguage, translate } = await import('/components/i18n.js');
+    return [
+      preferredLanguage({ getItem: () => 'en' }, ['zh-TW']),
+      preferredLanguage({ getItem() { throw new Error(); } }, ['zh-HK']),
+      preferredLanguage(null, []),
+      translate('  Projects\n', 'zh-TW')
+    ];
+  });
+  assert.equal(JSON.stringify(helpers), JSON.stringify(['en', 'zh-TW', 'en', '  專案作品\n']));
   await context.close();
-
-  assert.equal(preferredLanguage({ getItem: () => 'en' }, ['zh-TW']), 'en');
-  assert.equal(preferredLanguage({ getItem() { throw new Error(); } }, ['zh-HK']), 'zh-TW');
-  assert.equal(preferredLanguage(null, []), 'en');
-  assert.equal(translate('  Projects\n', 'zh-TW'), '  專案作品\n');
   return `${routes.length} routes: bilingual round trips, translation coverage, unchanged media/links, desktop/mobile layout, persistence, dynamic controls, and blocked storage passed.`;
 }

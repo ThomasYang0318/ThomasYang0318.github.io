@@ -7,7 +7,7 @@
   <title>Smart Wearable Resistance Training System — Yang Chi Hung</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <script src="../theme-init.js?v=20261008-10"></script>
-  <link rel="stylesheet" href="../styles.css?v=20261008-12" />
+  <link rel="stylesheet" href="../styles.css?v=20261008-13" />
 </head>
 <body class="project-page">
   <header class="site-header">
@@ -28,60 +28,98 @@
       <p class="eyebrow">Embedded AI · Wearable System</p>
       <h1>Smart Wearable Resistance Training System</h1>
       <div class="project-summary">
-        <div class="tags"><span>IMU</span><span>Optical Sensing</span><span>CNN</span><span>Flutter</span><span>Luckfox Pico Zero</span></div>
-        <p>A wearable system designed to analyze repetition count, movement quality, and fatigue-related physiological changes during resistance training, then present real-time feedback and post-training summaries through a mobile application.</p>
+        <div class="tags"><span>IMU</span><span>Multiwavelength PPG</span><span>Causal CNN</span><span>Edge AI</span><span>Flutter</span></div>
+        <p>A wrist-worn research system combining IMU and five-wavelength PPG to recognize eight resistance-training exercises, analyze movement tempo, and estimate perceived exertion, with on-device inference and mobile feedback.</p>
       </div>
-      <div class="project-hero-image project-carousel project-detail-carousel" data-project-gallery="wearable" aria-label="Wearable system project gallery"><img src="../assets/images/projects/embedded/wearable-system-architecture.png" alt="Wearable system architecture from optical sensing and IMU input to edge processing and smartphone feedback" /></div>
+      <div class="project-hero-image project-carousel project-detail-carousel" data-project-gallery="wearable" aria-label="Wearable system project gallery"><img src="../assets/images/projects/embedded/wearable/system-architecture.png" alt="Wearable sensing architecture connecting optical sensors and an IMU to a Luckfox Pico Zero and smartphone" /></div>
     </section>
 
     <section class="case-section wrap reveal">
       <div class="case-grid">
         <h2>Overview</h2>
         <div class="case-content">
-          <p>The project combines motion sensing and optical sensing in a wrist-worn system. IMU data is used for exercise recognition, repetition segmentation, and movement-phase analysis, while optical measurements provide signals for fatigue estimation and physiological-change analysis. The application then presents live training feedback and a training summary.</p>
-          <div class="link-row">
-            <a class="button button-dark" href="https://youtu.be/DJ7WR7n6QPM" target="_blank" rel="noreferrer">Watch demo ↗</a>
-            <a class="button button-light" href="https://canva.link/i5gf08p3kfrgf98" target="_blank" rel="noreferrer">Presentation ↗</a>
-          </div>
+          <p>Resistance-training logs often capture weight, sets, and repetitions but miss how each repetition is performed and how demanding it feels. This team research project combines motion analysis and perceived-load estimation in a single wrist-worn device.</p>
+          <p>Research manuscript: IMU and Multispectral PPG-Based Wearable System for Motion and Physiological Load Assessment in Resistance Training. The methods, figures, and results below follow the supplied manuscript; Chi-Hung Yang is a co-author.</p>
+          <div class="link-row"><a class="button button-dark" href="https://youtu.be/DJ7WR7n6QPM" target="_blank" rel="noreferrer">Watch demo ↗</a><a class="button button-light" href="https://canva.link/i5gf08p3kfrgf98" target="_blank" rel="noreferrer">Presentation ↗</a></div>
         </div>
       </div>
     </section>
 
     <section class="case-section wrap reveal">
       <div class="case-grid">
-        <h2>System architecture</h2>
+        <h2>Sensing &amp; hardware</h2>
         <div class="case-content">
-          <p>The sensing pipeline connects the optical front end and IMU to a Luckfox Pico Zero embedded platform. Processed information is transmitted to a smartphone for training feedback.</p>
-          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Wearable resistance training system architecture">
-            <span>Architecture</span><strong>Optical sensor + IMU → Luckfox Pico Zero → Smartphone</strong>
-          </div>
+          <p>The 75.5 × 46.0 × 29.7 mm prototype integrates a custom PCB, a 3D-printed enclosure, a lithium-ion battery, and a Luckfox Pico Zero. Its LSM9DS0 nine-axis IMU supplies three-axis acceleration and three-axis angular velocity to the motion model.</p>
+          <p>The reflectance PPG module uses 670, 770, 810, 850, and 950 nm light, four photodiodes, and an ADPD4101 analog front end. Synchronized IMU and optical signals are processed on the device, and results are sent to the smartphone via Bluetooth.</p>
+          <figure class="case-image manuscript-figure"><img src="../assets/images/projects/embedded/wearable/hardware.jpg" width="623" height="556" loading="lazy" alt="Top, side, and bottom views of the wearable hardware" /><figcaption>Hardware configuration from manuscript Fig. 2(b).</figcaption></figure>
         </div>
       </div>
     </section>
 
     <section class="case-section wrap reveal">
       <div class="case-grid">
-        <h2>Hardware</h2>
+        <h2>Movement analysis</h2>
         <div class="case-content">
-          <p>The prototype includes the wearable enclosure, sensor board, optical sensing circuitry, IMU, and embedded computer. I also participated in sensor-module soldering and hardware testing.</p>
-          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Wearable sensor PCB and schematic">
-            <span>Hardware</span><strong>Sensor board · Optical front end · IMU · Embedded computer</strong>
-          </div>
+          <p>A causal CNN processes approximately three seconds of six-axis IMU data using current and past signals. It first estimates movement phases, then reconstructs complete repetitions from their temporal order. Outputs include exercise type, repetition count, time under tension (TUT), concentric and eccentric durations, and their duration ratio (C/E).</p>
+          <p>The eight exercises are dumbbell bench press, one-arm dumbbell row, shoulder press, biceps curl, triceps extension, squat, Romanian deadlift, and weighted crunch.</p>
+          <p>A five-level tempo-adherence score compares measured concentric and eccentric durations with exercise-specific targets. It describes adherence to the target tempo, rather than establishing a universal optimal tempo or measuring every aspect of exercise technique.</p>
+          <figure class="case-image manuscript-figure"><img src="../assets/images/projects/embedded/wearable/motion-model.jpg" width="1058" height="402" loading="lazy" alt="Causal CNN using six-axis IMU signals for exercise recognition and phase segmentation" /><figcaption>Phase segmentation model from manuscript Fig. 5.</figcaption></figure>
         </div>
       </div>
     </section>
 
     <section class="case-section wrap reveal">
       <div class="case-grid">
-        <h2>AI & application</h2>
+        <h2>Perceived exertion estimation</h2>
         <div class="case-content">
-          <p>The motion-analysis workflow uses six-axis IMU signals and a CNN-based model to support phase-level movement analysis. The mobile interface is designed to make current training status and session summaries understandable at a glance.</p>
-          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="CNN motion analysis model diagram">
-            <span>AI pipeline</span><strong>Six-axis IMU → Segmentation → CNN classification → Movement analysis</strong>
-          </div>
-          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Mobile application screens for the wearable training system">
-            <span>Application</span><strong>Live training status · Movement feedback · Session summary</strong>
-          </div>
+          <p>The RPE model combines PPG-derived physiological features, IMU-derived motion features, exercise type, set and repetition information, and individual characteristics such as age, height, weight, and sex. It estimates a continuous value on the 0–10 Borg CR10 scale using ratings reported after each repetition as supervision.</p>
+          <p>During data collection, a VO₂ Master metabolic analyzer provided oxygen-uptake measurements as a reference for whole-body metabolic load. Routine wearable inference uses the wrist sensors and individual information without requiring the metabolic analyzer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Edge deployment</h2>
+        <div class="case-content">
+          <p>The motion-phase model is converted to INT8 RKNN and runs on the Luckfox Pico Zero NPU. Lightweight MLP models use ONNX, while preprocessing and feature extraction are implemented in Zig. Tree models are exported as JSON for direct traversal without their original training frameworks.</p>
+          <p>RKNN buffer management, zram compressed swap, and fixed-length sensor buffers address memory and data-copy overhead. Processing stays on the wearable, with derived results transmitted to the app for feedback.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Mobile feedback</h2>
+        <div class="case-content">
+          <p>The Flutter app supports iOS and Android with three main functions: live monitoring, post-training review, and training recommendations. Live feedback shows exercise type, movement phase, repetition count, tempo quality, RPE, estimated VO₂, and phase durations.</p>
+          <p>Session review summarizes duration, valid repetitions, RPE range, and quality scores. The guidance interface suggests whether to maintain or adjust load, change tempo, or extend rest based on the recorded training information.</p>
+          <div class="manuscript-app-grid"><figure class="case-image manuscript-figure"><img src="../assets/images/projects/embedded/wearable/app-live.jpg" width="297" height="609" loading="lazy" alt="Live training screen with exercise, repetitions, tempo, RPE, and estimated VO2" /><figcaption>Live monitoring</figcaption></figure>
+            <figure class="case-image manuscript-figure"><img src="../assets/images/projects/embedded/wearable/app-review.jpg" width="284" height="597" loading="lazy" alt="Workout review screen with repetition totals and training metrics" /><figcaption>Session review</figcaption></figure>
+            <figure class="case-image manuscript-figure"><img src="../assets/images/projects/embedded/wearable/app-guidance.jpg" width="291" height="597" loading="lazy" alt="Workout review screen with completed movements and coaching advice" /><figcaption>Training guidance</figcaption></figure></div>
+          <p>Application screens reproduced from manuscript Fig. 9.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Study &amp; results</h2>
+        <div class="case-content">
+          <p>The study included 14 healthy adults aged 20–30: 12 men and 2 women. Training loads were set to 60%–70% of estimated one-repetition maximum. Participant-level data separation avoided sharing one person’s windows across training, validation, and test sets; RPE performance was evaluated with leave-one-subject-out cross-validation (LOSO).</p>
+          <div class="role-grid manuscript-results"><div><h3>Repetition count MAE</h3><p>0.973</p></div><div><h3>Repetition IoU-F1@50</h3><p>87.40%</p></div><div><h3>Phase IoU-F1@50</h3><p>71.60%</p></div><div><h3>C/E ratio MAE</h3><p>0.601</p></div><div><h3>RPE MAE · LOSO</h3><p>0.724</p></div><div><h3>Within ±1 RPE point · LOSO</h3><p>88.6%</p></div></div>
+          <p>Results are reported in manuscript Table III and Section III-B. MAE is mean absolute error; IoU-F1@50 measures temporal-segment detection at an overlap threshold of 0.5. The 88.6% result is the proportion of RPE predictions within one point of the reference rating, not exact-score accuracy.</p>
+          <p>Exercise-specific recognition rates ranged from 81.2% to 99.1%. The proposed model improved repetition and phase IoU-F1@50 over RF, Causal TCN-Lite, and BiLSTM. The peak-based baseline had a slightly lower count MAE (0.927), but lower repetition IoU-F1@50 (74.80%) and no reported phase-level or C/E results.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section wrap reveal">
+      <div class="case-grid">
+        <h2>Limitations &amp; next steps</h2>
+        <div class="case-content">
+          <p>The sample is small and predominantly young men, so broader population performance remains unverified. Borg CR10 represents subjective exertion; wrist PPG does not directly measure fatigue or oxygenation in a specific working muscle. Phase-boundary errors can also affect TUT and C/E estimates.</p>
+          <p>Next steps include more diverse participants, independent external testing, personalized calibration, and comparisons against local NIRS, surface EMG, or force measurements. Sensor and wavelength ablation studies and quantitative edge-device evaluation are also identified as future work.</p>
         </div>
       </div>
     </section>
@@ -110,6 +148,6 @@
     </section>
   </main>
   <footer class="footer wrap"><span>© <span id="year"></span> Yang Chi Hung</span><a href="../index.html">Home ↑</a></footer>
-  <script type="module" src="../script.js?v=20261008-12"></script>
+  <script type="module" src="../script.js?v=20261008-13"></script>
 </body>
 </html>
