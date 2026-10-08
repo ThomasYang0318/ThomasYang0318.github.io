@@ -44,3 +44,16 @@ The algorithm and performance descriptions come from pages 1–15. Gaussian spee
 `prediction-result.png` is the unchanged user-provided `履歷 的複本.png`, added on 2026-10-08 as the homepage cover and sole gallery image. It shows a hand gesture with the model output label 0. The training previews listed above are retained as source assets but are no longer displayed on the site.
 
 Image display is capped at natural size in project galleries, with scale-down fitting for contained homepage images. The 596 x 335 Canva previews and 150 x 151 prediction image need higher-resolution originals for larger, sharper presentation; CSS does not restore missing detail.
+
+## Nebula Market sources
+
+The project copy and team contributions follow the user's [Nebula Market presentation](https://www.canva.com/design/DAGmQcP8vx0/yKB8-b4BMJb_f-6iVBpoAA/view), read on 2026-10-08. It documents a three-person 2025 course project, Flutter/Dart and web3dart integration with local Hardhat contracts, and application and purchase-test demos.
+
+`software/nebula/` contains byte-for-byte copies of the four user-provided PNGs:
+
+- `navigation.png`: `履歷 的複本 (1).png`, 83 x 203.
+- `app-registration.png`: `履歷 的複本 (2).png`, 258 x 203; homepage cover.
+- `my-purchases.png`: `履歷 的複本 (3).png`, 258 x 203.
+- `logo.png`: `履歷 的複本 (4).png`, 75 x 37.
+
+These files are small originals, not high-resolution replacements. Keep their natural display size to avoid upscaling.

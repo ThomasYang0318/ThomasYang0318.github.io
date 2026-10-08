@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Nebula Market — Yang Chi Hung portfolio project." />
+  <meta name="description" content="Nebula Market: a Flutter and web3dart course project for NFT-backed software licensing, tested on a local Hardhat blockchain. Frontend design and programming by Yang Chi Hung." />
   <title>Nebula Market — Yang Chi Hung</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <script src="../theme-init.js"></script>
@@ -16,17 +16,45 @@
       <a class="back-link" href="../index.html#projects">← Back to projects</a>
       <p class="eyebrow">Software · Blockchain</p>
       <h1>Nebula Market</h1>
-      <div class="project-summary"><div class="tags"><span>Flutter</span><span>web3dart</span><span>Smart Contract</span><span>NFT</span></div><p>A blockchain-based marketplace exploring how software licenses can be issued, verified, tracked, and transferred through smart contracts and NFT-backed ownership.</p></div>
-      <div class="project-hero-image project-carousel project-detail-carousel" data-project-gallery="nebula" aria-label="Nebula Market project gallery"><img src="../assets/images/project-placeholder-dog-en.jpg" alt="No image available for the Nebula Market project yet" /></div>
+      <div class="project-summary"><div class="tags"><span>Flutter</span><span>Dart</span><span>web3dart</span><span>Hardhat</span><span>NFT</span></div><p>A blockchain-based marketplace exploring how software licenses can be issued, verified, tracked, and transferred through smart contracts and NFT-backed ownership.</p></div>
+      <div class="project-hero-image project-carousel project-detail-carousel" data-project-gallery="nebula" aria-label="Nebula Market application screenshots and logo"><img src="../assets/images/projects/software/nebula/app-registration.png" alt="Nebula Market app registration and version pricing forms" /></div>
     </section>
 
-    <section class="case-section wrap reveal"><div class="case-grid"><h2>Overview</h2><div class="case-content"><p>Developers can list software versions and issue corresponding licenses through smart contracts. When a user purchases a license, the contract mints an NFT tokenId to the user’s wallet. The application can then call a verification function before software launch to confirm that the user owns a valid license.</p><div class="link-row"><a class="button button-dark" href="https://youtu.be/H5aj_MFhBm4?si=EhKtqLig62_MJYZG" target="_blank" rel="noreferrer">Watch demo ↗</a><a class="button button-light" href="https://canva.link/n22kzscccux7rz4" target="_blank" rel="noreferrer">Presentation ↗</a></div></div></div></section>
+    <section class="case-section wrap reveal"><div class="case-grid"><h2>Motivation</h2><div class="case-content">
+      <p>Nebula Market explores the difficulties independent software developers face when distributing their work: listing fees and review procedures, limited visibility into license ownership, and few ways for users to resell an existing license.</p>
+      <p>The prototype represents each software license as an NFT held in a user’s wallet. Smart contracts manage issuance, ownership checks, and transfers, while a Flutter application presents the marketplace and developer tools.</p>
+      <div class="link-row"><a class="button button-dark" href="https://youtu.be/H5aj_MFhBm4" target="_blank" rel="noreferrer">Watch demo ↗</a><a class="button button-light" href="https://www.canva.com/design/DAGmQcP8vx0/yKB8-b4BMJb_f-6iVBpoAA/view" target="_blank" rel="noreferrer">Presentation ↗</a></div>
+    </div></div></section>
 
-    <section class="case-section wrap reveal"><div class="case-grid"><h2>License flow</h2><div class="case-content"><p>The project also supports resale between users. A license can be transferred through the contract, creating a software-licensing flow that is verifiable, traceable, and transferable.</p><div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Nebula Market software license flow"><span>License lifecycle</span><strong>Issue → Purchase → Verify → Transfer</strong></div></div></div></section>
+    <section class="case-section wrap reveal"><div class="case-grid"><h2>Application workflow</h2><div class="case-content">
+      <p>The interface separates publishing tools from purchasing and ownership records. Its navigation includes Marketplace, Free Market, My Purchases, My Creations, and Add App.</p>
+      <div class="project-facts">
+        <div><span>Register an app</span><p>Enter the application name and description to create an App ID. This identifies the software when publishing later versions.</p></div>
+        <div><span>Publish a version</span><p>Use the App ID to register a version and set its price in Wei. My Creations lists the developer’s uploaded applications.</p></div>
+        <div><span>Browse markets</span><p>The presentation distinguishes an official Marketplace with reviewed listings from a Free Market for more flexible listings and secondary license trading.</p></div>
+        <div><span>View purchases</span><p>My Purchases displays owned licenses with their License ID, software ID, and version, as shown in the supplied screenshot.</p></div>
+      </div>
+    </div></div></section>
+
+    <section class="case-section wrap reveal"><div class="case-grid"><h2>License lifecycle</h2><div class="case-content">
+      <p>A buyer chooses a software version in Flutter. The client uses web3dart to call <code>buyLicense</code>, and the contract issues an NFT license with a unique <code>tokenId</code> to the buyer’s wallet.</p>
+      <p>Software can call <code>verify</code> before enabling its functionality to check whether the user holds the required license. For resale, <code>transferLicense</code> changes the license owner through the contract.</p>
+      <p>This connects purchase, ownership verification, and transfer in one licensing workflow. Enforcement still depends on the software integrating the verification step.</p>
+    </div></div></section>
+
+    <section class="case-section wrap reveal"><div class="case-grid"><h2>Architecture &amp; testing</h2><div class="case-content">
+      <p>The Flutter and Dart client provides the interface, and web3dart connects it to the smart contracts. The contracts manage license issuance, verification, and transfers.</p>
+      <p>Development and testing used a local Hardhat blockchain with deployed contracts. The presentation includes separate demonstrations of the application and a license purchase test. The documented result is a course prototype tested locally.</p>
+    </div></div></section>
+
+    <section class="case-section wrap reveal"><div class="case-grid"><h2>My contribution</h2><div class="case-content">
+      <p>This was a three-person final project for a 2025 computer science course. My contributions were frontend design, programming, and presentation preparation.</p>
+      <p>The other team members handled backend design and programming, and system testing.</p>
+    </div></div></section>
 
     <section class="case-section wrap reveal"><div class="case-grid"><h2>Project video</h2><div class="case-content" data-project-videos="nebula"><p>Watch the project demo through the link above.</p></div></div></section>
   </main>
   <footer class="footer wrap"><span>© <span id="year"></span> Yang Chi Hung</span><a href="../index.html">Home ↑</a></footer>
-  <script type="module" src="../script.js?v=20261008-8"></script>
+  <script type="module" src="../script.js?v=20261008-9"></script>
 </body>
 </html>

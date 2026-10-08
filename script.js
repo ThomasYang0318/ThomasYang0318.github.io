@@ -1,4 +1,4 @@
-import { projectLookup, projectTracks } from './data/projects.js?v=20261008-8';
+import { projectLookup, projectTracks } from './data/projects.js?v=20261008-9';
 import { skillGroups } from './data/skills.js?v=20261008-4';
 import { initCarousels } from './components/carousel.js?v=20260827-12';
 import { renderFeatureTours } from './components/feature-tour.js?v=20260827-12';

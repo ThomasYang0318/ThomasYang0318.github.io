@@ -145,14 +145,30 @@ export const projectTracks = [
         description: 'A marketplace for issuing, verifying, tracking, and transferring NFT-backed software licenses.',
         href: 'projects/nebula.html',
         linkLabel: 'Read project →',
-        tags: ['Flutter', 'Web3', 'Smart Contract', 'NFT'],
+        tags: ['Flutter', 'Dart', 'web3dart', 'Hardhat', 'NFT'],
+        details: [
+          'Nebula Market is a three-person course project exploring software distribution and NFT-backed licensing. A Flutter client uses web3dart to interact with smart contracts deployed to a local Hardhat blockchain.',
+          'Developers register an app, receive an App ID, and publish versions with prices in Wei. Buyers obtain NFT licenses that can be checked by the software and transferred through a secondary market.',
+          'My contributions covered frontend design, programming, and presentation preparation. Other team members handled backend design and programming, and system testing.'
+        ],
+        links: [
+          { label: 'View presentation ↗', url: 'https://www.canva.com/design/DAGmQcP8vx0/yKB8-b4BMJb_f-6iVBpoAA/view' }
+        ],
         videos: [
-          { title: 'Nebula Market demo', youtubeId: 'H5aj_MFhBm4' }
+          { title: 'Nebula Market application demo', youtubeId: 'H5aj_MFhBm4' },
+          { title: 'License purchase test', youtubeId: 'uJcP2b_NbDU' }
         ],
         image: {
-          src: 'assets/images/project-placeholder-dog-en.jpg',
-          alt: 'No image available for the Nebula Market project yet'
-        }
+          src: 'assets/images/projects/software/nebula/app-registration.png',
+          alt: 'Nebula Market app registration and version pricing forms',
+          className: 'media-contain'
+        },
+        images: [
+          { src: 'assets/images/projects/software/nebula/app-registration.png', alt: 'Nebula Market forms for registering an app and publishing a version with a price in Wei' },
+          { src: 'assets/images/projects/software/nebula/my-purchases.png', alt: 'My Purchases page showing a license ID, software ID, and purchased version' },
+          { src: 'assets/images/projects/software/nebula/navigation.png', alt: 'Nebula Market navigation with Marketplace, Free Market, My Purchases, My Creations, and Add App' },
+          { src: 'assets/images/projects/software/nebula/logo.png', alt: 'Nebula Market logo' }
+        ]
       },
       {
         id: 'local-ai-chatbot',
