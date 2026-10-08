@@ -1,4 +1,4 @@
-import { projectLookup, projectTracks } from './data/projects.js?v=20261008-13';
+import { projectLookup, projectTracks } from './data/projects.js?v=20261008-14';
 import { skillGroups } from './data/skills.js?v=20261008-4';
 import { initCarousels } from './components/carousel.js?v=20260827-12';
 import { renderFeatureTours } from './components/feature-tour.js?v=20260827-12';
@@ -8,7 +8,7 @@ import { renderProjectGalleries, renderProjectTracks } from './components/projec
 import { initNavigation, initRevealAnimations, initThemeToggle, restoreHashTarget, updateCopyrightYear } from './components/site.js?v=20260908-1';
 import { initSkillProjectChooser, renderSkillGroups } from './components/skills.js?v=20260827-12';
 import { renderProjectVideos, renderVideoEmbeds } from './components/videos.js?v=20260827-12';
-import { initLanguageSwitcher } from './components/i18n.js?v=20261008-13';
+import { initLanguageSwitcher } from './components/i18n.js?v=20261008-14';
 
 const pathPrefix = document.body.classList.contains('project-page') ? '../' : '';
 

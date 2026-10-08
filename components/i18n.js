@@ -1,4 +1,4 @@
-import { zhTW } from '../data/zh-tw.js?v=20261008-13';
+import { zhTW } from '../data/zh-tw.js?v=20261008-14';
 
 export const LANGUAGE_STORAGE_KEY = 'portfolio-language';
 const ATTRIBUTES = ['alt', 'aria-label', 'title', 'placeholder'];
