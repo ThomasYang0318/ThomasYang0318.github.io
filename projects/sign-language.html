@@ -33,9 +33,6 @@
         <div class="tags"><span>MATLAB</span><span>CNN</span><span>Self-Attention</span><span>ASL</span></div>
         <p>A 36-class image-classification prototype for recognizing static ASL fingerspelling gestures across the letters A-Z and digits 0-9.</p>
       </div>
-      <div class="project-hero-image project-carousel project-detail-carousel" data-project-gallery="sign-language-recognition" aria-label="Sign language recognition prediction result">
-        <img src="../assets/images/projects/visual/sign-language/prediction-result.png" alt="Hand-gesture image with the model prediction label 0" />
-      </div>
     </section>
 
     <section class="case-section wrap reveal">
@@ -72,10 +69,7 @@
         <h2>Model pipeline</h2>
         <div class="case-content">
           <p>The workflow adapts a basic MATLAB CNN classification example to a larger RGB input and a 36-class output. Convolution, batch normalization, ReLU, and pooling extract visual features before the classifier predicts a letter or number.</p>
-          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Image classification model pipeline">
-            <span>Classification pipeline</span>
-            <strong>ASL image &rarr; resize &rarr; CNN features &rarr; spatial attention &rarr; class prediction</strong>
-          </div>
+          <p>The classification pipeline resizes each ASL image, extracts CNN features, applies spatial attention, and predicts the gesture class.</p>
           <div class="role-grid">
             <div><h3>Preprocessing</h3><p>Load folder labels and resize RGB images to <code>400 &times; 400</code>.</p></div>
             <div><h3>Feature extraction</h3><p>Use convolution, normalization, activation, and pooling to learn visual hand features.</p></div>
@@ -90,7 +84,7 @@
         <h2>Training iterations</h2>
         <div class="case-content">
           <p>The initial four-epoch run recorded 2.86% validation accuracy, and the first augmentation experiment remained at 2.86%. A later 20-epoch run reached 93.14%, with an overfitting concern noted in the presentation. Reducing training to 10 epochs produced the highest documented validation result of 94.00% across 180 iterations. A further experiment compared learning rates of 0.001 and 0.0001.</p>
-          <p>The gallery contains the original presentation slides and training curves. These percentages are validation results; they do not establish accuracy on an independent test set or in live use.</p>
+          <p>These percentages are validation results documented in the linked presentation; they do not establish accuracy on an independent test set or in live use.</p>
           <ol class="stage-roadmap" aria-label="Model training iterations">
             <li><a href="#experiments"><span>01</span><strong>2.86%</strong><small>Initial CNN, 4 epochs</small></a></li>
             <li><a href="#experiments"><span>02</span><strong>Augment</strong><small>Rotation, reflection, and dropout</small></a></li>
@@ -112,10 +106,6 @@
         <div class="case-content">
           <p>The SA model variants include a custom single-head spatial self-attention layer. It projects the CNN feature map into Query, Key, and Value representations, compares spatial positions, and reweights the features before classification.</p>
           <p>This is a lightweight custom attention experiment rather than a complete Transformer block. Attention must be applied after spatial downsampling because its memory requirement grows quadratically with the number of feature-map positions.</p>
-          <div class="case-image visual-placeholder visual-placeholder-compact" role="img" aria-label="Spatial self-attention calculation">
-            <span>Custom attention layer</span>
-            <strong>Feature map &rarr; Query + Key + Value &rarr; weighted spatial features</strong>
-          </div>
         </div>
       </div>
     </section>
