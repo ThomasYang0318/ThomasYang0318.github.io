@@ -5,7 +5,7 @@ export const skillGroups = [
     name: 'Languages',
     skills: [
       { name: 'Python', projectIds: ['local-ai-chatbot', 'stock-assistant', 'sign-language-recognition'] },
-      { name: 'C / C++', projectId: 'opengl' },
+      { name: 'C / C++', projectIds: ['opengl', 'mini-photoshop'] },
       { name: 'Dart', projectIds: ['nebula', 'mijing', 'wearable'] },
       { name: 'MATLAB', projectId: 'wearable' }
     ]

@@ -367,13 +367,22 @@ export const projectTracks = [
         id: 'mini-photoshop',
         title: 'Mini Photoshop',
         type: 'Image processing',
-        description: 'Scaling, contrast, Gaussian blur, and Sobel filtering.',
+        description: 'An independently developed C++ image editor for resizing, color adjustments, Gaussian blur, and Sobel edge detection.',
         href: 'projects/project.html?id=mini-photoshop',
         linkLabel: 'Read project →',
-        tags: ['Image Processing', 'Gaussian Blur', 'Sobel Filter'],
+        tags: ['C++', 'Image Processing', 'Gaussian Blur', 'Sobel Filter'],
         details: [
-          'Mini Photoshop implements a focused set of image-processing operations to make the underlying pixel transformations visible and understandable.',
-          'The project includes image scaling, contrast adjustment, Gaussian blur, and Sobel edge detection as small, testable processing modules.'
+          'Mini Photoshop is a C++ image-processing tool that I developed independently, using familiar Photoshop editing functions as a reference. The project brings basic image transformations into an interactive interface where users can load an image, apply an operation, and inspect the result.',
+          'The resizing tools support proportional enlargement, proportional reduction, and non-proportional enlargement. Color adjustments include grayscale conversion, negative images, and increasing or decreasing contrast.',
+          'The image-processing functions include Gaussian blur and Sobel edge detection. The project examples place original and processed images side by side to show smoothing effects and the outlines extracted from an image.',
+          'By connecting image-processing algorithms with a graphical interface, the project explores how pixel-level operations become practical editing tools with directly visible results.'
+        ],
+        overviewFacts: [
+          { label: 'Development & role', value: 'Independent project developed in C++.' },
+          { label: 'User workflow', value: 'Load an image, select an editing operation, and view the processed result in the interface.' },
+          { label: 'Resizing', value: 'Proportional enlargement and reduction, plus non-proportional enlargement.' },
+          { label: 'Color adjustments', value: 'Grayscale, negative images, and higher or lower contrast.' },
+          { label: 'Image filters', value: 'Gaussian blur for smoothing and Sobel filtering for edge detection.' }
         ],
         image: {
           src: 'assets/images/project-placeholder-dog-en.jpg',
