@@ -672,3 +672,17 @@ a.portfolio-card:hover { transform:translateY(-3px); border-color:var(--line-str
 @media (max-width: 640px) {
   html[lang='zh-TW'] .hero h1 { font-size:clamp(34px,10.5vw,44px); }
 }
+
+/* Chinese typography only; preserve the English layout and existing page structure. */
+html[lang='zh-TW'] body {
+  font-family:Inter,"Noto Sans TC","PingFang TC","Microsoft JhengHei","Segoe UI",sans-serif;
+  word-break:normal;
+  line-break:strict;
+}
+html[lang='zh-TW'] :is(h1,h2,h3,h4) {
+  text-wrap:balance;
+  line-height:1.35;
+  letter-spacing:0;
+}
+html[lang='zh-TW'] p { text-wrap:pretty; letter-spacing:normal; }
+html[lang='zh-TW'] .hero-lead { line-height:1.75; }

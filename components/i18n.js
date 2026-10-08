@@ -4,6 +4,23 @@ export const LANGUAGE_STORAGE_KEY = 'portfolio-language';
 const ATTRIBUTES = ['alt', 'aria-label', 'title', 'placeholder'];
 const SKIP = 'script, style, code, pre, [data-no-translate]';
 const normalize = value => value.replace(/\s+/g, ' ').trim();
+const headingPhrases = /從構想到實作|打造智慧產品|智慧穿戴式|阻力訓練系統|嵌入式系統|手語影像辨識|深度旅行探索/g;
+const wordSegmenter = typeof Intl.Segmenter === 'function'
+  ? new Intl.Segmenter('zh-TW', { granularity: 'word' }) : null;
+const joinWord = word => [...word].join('\u2060');
+
+// Word joiners protect short Chinese words without changing visible text or DOM.
+// Only display headings use these hints; metadata, English, and paragraphs do not.
+export function formatChineseHeading(text) {
+  const parts = text.split(headingPhrases);
+  const phrases = [...text.matchAll(headingPhrases)];
+  return parts.map((part, index) => {
+    const words = wordSegmenter ? [...wordSegmenter.segment(part)].map(({ segment, isWordLike }) =>
+      isWordLike && /[\u3400-\u9fff]/.test(segment) ? joinWord(segment) : segment
+    ).join('') : part;
+    return words + (phrases[index] ? joinWord(phrases[index][0]) : '');
+  }).join('');
+}
 
 export function preferredLanguage(storage, languages = []) {
   try {
@@ -46,7 +63,10 @@ export function initLanguageSwitcher(root = document, host = window) {
     const previous = values[key];
     // Keep original English, but adopt fresh text inserted by interactive controls.
     const source = previous && previous.rendered === current ? previous.source : current;
-    const rendered = translate(source, language);
+    let rendered = translate(source, language);
+    if (language === 'zh-TW' && key === 'text' && owner.parentElement?.closest('h1, h2, h3, h4')) {
+      rendered = formatChineseHeading(rendered);
+    }
     values[key] = { source, rendered };
     registry.set(owner, values);
     if (current !== rendered) write(rendered);

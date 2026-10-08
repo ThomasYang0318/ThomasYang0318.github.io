@@ -8,7 +8,7 @@ import { renderProjectGalleries, renderProjectTracks } from './components/projec
 import { initNavigation, initRevealAnimations, initThemeToggle, restoreHashTarget, updateCopyrightYear } from './components/site.js?v=20260908-1';
 import { initSkillProjectChooser, renderSkillGroups } from './components/skills.js?v=20260827-12';
 import { renderProjectVideos, renderVideoEmbeds } from './components/videos.js?v=20260827-12';
-import { initLanguageSwitcher } from './components/i18n.js?v=20261008-10';
+import { initLanguageSwitcher } from './components/i18n.js?v=20261008-12';
 
 const pathPrefix = document.body.classList.contains('project-page') ? '../' : '';
 
