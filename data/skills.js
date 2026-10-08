@@ -15,7 +15,7 @@ export const skillGroups = [
     skills: [
       { name: 'IMU', projectId: 'wearable' },
       { name: 'Luckfox Pico Zero', projectId: 'wearable' },
-      { name: 'Arduino', projectId: 'two-dices' }
+      { name: 'Digital Logic', projectId: 'two-dices' }
     ]
   },
   {

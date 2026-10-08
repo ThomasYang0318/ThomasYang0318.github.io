@@ -249,16 +249,28 @@ export const projectTracks = [
         id: 'two-dices',
         title: 'Two Dices',
         type: 'Digital logic',
-        description: 'Digital logic and a seven-segment display circuit.',
+        description: 'A digital-logic dice comparison game with seven-segment displays and indicator lights for greater than, equal to, or less than.',
         href: 'projects/project.html?id=two-dices',
         linkLabel: 'Read project →',
-        tags: ['Digital Logic', 'Seven-segment Display', 'Hardware'],
+        tags: ['Digital Logic', 'CircuitJS1', '555 Timer', 'Seven-segment Display'],
         details: [
-          'Two Dices is a hardware project that implements dice behavior with digital logic and displays the resulting values on seven-segment displays.',
-          'The work emphasizes circuit planning, component-level integration, and translating a simple interaction into a reliable physical output.'
+          'Two Dices is a three-person digital-logic project that compares two dice values. The circuit represents values on seven-segment displays and uses indicator lights to show whether the first value is greater than, equal to, or less than the second.',
+          'The development workflow moved from logic design and CircuitJS1 simulation to a physical breadboard implementation. Simulation was used to check logic behavior and signal outputs before connecting the ICs, arranging the power supply, and testing the inputs and displays.',
+          'The project explored two dice-generation approaches: a Johnson counter driven by a 555 timer, and three 555 timers operating at different frequencies. A DIP-switch input was also included as an alternative for setting dice values.',
+          'My responsibilities were circuit design, breadboard wiring, and testing and debugging. The project gave me practical experience translating simulated digital logic into a working hardware circuit.'
+        ],
+        overviewFacts: [
+          { label: 'Team & role', value: 'Three-person team. My work covered circuit design, breadboard wiring, and testing and debugging.' },
+          { label: 'Simulation', value: 'CircuitJS1 was used to verify the logic design and signal outputs before hardware implementation.' },
+          { label: 'Counter-based dice', value: 'A 555 timer supplies clock pulses to a 74HC4017 Johnson counter. A CD4532 priority encoder provides a three-bit representation, with logic gates handling invalid values 0 and 7 to keep the dice output within 1–6.' },
+          { label: 'State & display', value: '4013 D-type flip-flops hold the binary state, while a 4511 BCD-to-seven-segment decoder drives the numeric display.' },
+          { label: 'Alternative input', value: 'The second dice design explores three 555 timers with different resistor and capacitor values. DIP switches provide an alternative binary input for values 1–6.' },
+          { label: 'Comparison', value: 'A 7485 magnitude comparator compares the two dice values. Indicator lights show which value is larger or whether they are equal.' },
+          { label: 'Implementation challenges', value: 'The presentation documents difficulty tuning the 555 timer frequencies, along with clock stability, signal noise, power-supply stability, and complex breadboard wiring.' },
+          { label: 'Proposed improvements', value: 'Tune timer frequency with a variable resistor, improve clock stability, add switch debouncing and noise reduction, and simplify the wiring layout. These are proposed follow-up improvements.' }
         ],
         links: [
-          { label: 'View presentation ↗', url: 'https://canva.link/svid0oqvjhe7g9v' }
+          { label: 'View presentation ↗', url: 'https://www.canva.com/design/DAHJarXtIbw/EyQHEQyKoJ0cc53qU5ZDcA/view' }
         ],
         image: {
           src: 'assets/images/project-placeholder-dog-en.jpg',

@@ -1,5 +1,5 @@
-import { projectLookup, projectTracks } from './data/projects.js?v=20261008-1';
-import { skillGroups } from './data/skills.js?v=20260827-12';
+import { projectLookup, projectTracks } from './data/projects.js?v=20261008-2';
+import { skillGroups } from './data/skills.js?v=20261008-2';
 import { initCarousels } from './components/carousel.js?v=20260827-12';
 import { renderFeatureTours } from './components/feature-tour.js?v=20260827-12';
 import { renderGenericProjectDetail } from './components/project-detail.js?v=20260827-12';
